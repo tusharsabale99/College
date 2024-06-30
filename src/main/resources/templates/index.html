@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,
+				initial-scale=1" />
+
+<!-- Font Awesome -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+	rel="stylesheet" />
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+	rel="stylesheet" />
+<!-- MDB -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
+	rel="stylesheet" />
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+	rel="stylesheet" />
+<title>CMS HOME</title>
+</head>
+
+<body>
+	<!-- MDB -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+	<section id="navbar">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container-fluid">
+				<a class="navbar-brand link-info" href="#"> NIRI GLOBAL SERVICES </a> <a
+					class="navbar-brand" href="#" th:href="@{/}">Welcome Admin &nbsp; <span
+					sec:authentication="principal.username"> User</span></a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav m-auto">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="#service">Courses</a>
+						</li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/students}">Admission</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about">About
+								Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="#product">New</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="#social">Contact
+								Us</a></li>
+						<li class="nav-item"></li>
+					</ul>
+					<a class="nav-link" sec:authorize="isAuthenticated()"
+						th:href="@{/logout}">Logout</a>
+				</div>
+			</div>
+		</nav>
+	</section>
+
+	<!-- banner -->
+	<!-- Carousel wrapper -->
+	<div id="carouselDarkVariant"
+		class="carousel slide carousel-fade carousel-dark"
+		data-mdb-ride="carousel">
+		<!-- Indicators -->
+		<div class="carousel-indicators">
+			<button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="0"
+				class="active" aria-current="true" aria-label="Slide 1"></button>
+			<button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="1"
+				aria-label="Slide 1"></button>
+			<button data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="2"
+				aria-label="Slide 1"></button>
+		</div>
+
+		<!-- Inner -->
+		<div class="carousel-inner">
+			<!-- Single item -->
+			<div class="carousel-item active">
+				<img src="/img/grad1.jpg" class="d-block w-100"
+					alt="Motorbike Smoke" />
+				<div class="carousel-caption d-none d-md-block">
+					<h1 class="text-white">WE ENSURE BETTER EDUCATION FOR A BETTER
+						WORLD</h1>
+					<h5 class="text-white bg-dark">The discipline that is
+						concerned with methods of teaching and learning in schools or
+						school-like environments</h5>
+				</div>
+			</div>
+
+			<!-- Single item -->
+			<div class="carousel-item">
+				<img src="/img/carrer.jpg" class="d-block w-100" alt="Mountaintop" />
+				<div class="carousel-caption d-none d-md-block">
+					<h1 class="text-white bg-dark mb-3">Any successful Career
+						starts with good education</h1>
+					<h3 class="text-white">Take the first step to learn with us.</h3>
+				</div>
+			</div>
+
+			<!-- Single item -->
+			<div class="carousel-item">
+				<img src="/img/expert4.jpg" class="d-block w-100"
+					alt="Woman Reading a Book" />
+				<div class="carousel-caption d-none d-md-block">
+					<h1 class="text-white bg-dark mb-3">Get your EDUCATION Today.!</h1>
+					<h3 class="text-white">Learn From The Experts.</h3>
+				</div>
+			</div>
+		</div>
+		<!-- Inner -->
+
+		<!-- Controls -->
+		<button class="carousel-control-prev" type="button"
+			data-mdb-target="#carouselDarkVariant" data-mdb-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button"
+			data-mdb-target="#carouselDarkVariant" data-mdb-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="visually-hidden">Next</span>
+		</button>
+	</div>
+	<!-- Carousel wrapper -->
+
+	<!-- services -->
+	<section style="background-color: #e8e6e6" id="service">
+		<h1 class="text-center">Courses</h1>
+		<div class="card-group ">
+			<div class="card">
+				<img src="/img/arch.jpg"
+					class="card-img-top" style="width: 100%" alt="...">
+				<div class="card-body text-dark bg-light">
+					<h5 class="card-title">
+						<b>Architecture & planning</b>
+					</h5>
+					<p class="card-text">
+						<b>The Architecture and Construction Career Cluster® focuses
+							on designing, planning, managing, building, and maintaining the
+							built environment.</b>
+					</p>
+					<li><b>Department of Architecture</b></li>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Last updated 3 mins ago</small>
+				</div>
+			</div>
+			<div class="card">
+				<img src="/img/tech.jpg"
+					class="card-img-top" alt="...">
+				<div class="card-body text-dark bg-light">
+					<h3 class="card-title">
+						<b>Engineering & Technology</b>
+					</h3>
+					<p class="card-text">
+						<b>Join US Let's build a new world from new Technologies</b>
+					</p>
+					<li><b>Department of Computer Science and Engineering</b></li>
+					<li><b>Department of Aerospace Engineering</b></li>
+					<li><b>Department of Bio-Technology</b></li>
+					<li><b>Department of Civil Engineering</b></li>
+					<li><b>Department of Electronics and Communication</b></li>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Last updated 3 mins ago</small>
+				</div>
+			</div>
+			<div class="card bg-light">
+				<img src="/img/science.jpg"
+					class="card-img-top" alt="...">
+				<div class="card-body text-dark bg-light">
+					<h5 class="card-title bg-light">
+						<b>Arts & Science</b>
+					</h5>
+					<p class="card-text">
+						<b>both about observation and interpretation.</b>
+					</p>
+					<li><b>B.Sc computer science.</b></li>
+					<li><b>B.A. English.</b></li>
+					<li><b>B.Com computer application.</b></li>
+					<li><b>B.Sc physics</b></li>
+					<li><b>B.Sc electronics.</b></li>
+					<li><b>BBA.</b></li>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Last updated 3 mins ago</small>
+				</div>
+			</div>
+		</div>
+	</section>
+	<hr />
+
+	<!-- about Us -->
+	<section style="background-color: #a6a6a6" id="about">
+		<h1 style="background-color: #a6a6a6" class="text-center">About
+			Us</h1>
+		<div class="container-fluid" style="background-color: #e3e1e1"
+			id="about-container">
+			<div class="row" id="banner-row">
+				<div class="col-md-6" id="about-col">
+					<h3>Why Us</h3>
+					<ul>
+						<li>Offering well balanced programmes with scholarly faculty
+							and state-of-art facilities to impart high level of knowledge.</li>
+						<li>Involving progressive and meaningful research with
+							concern for sustainable development.</li>
+						<li>Enabling the students to acquire the skills for global
+							competencies.</li>
+						<li>Inculcating Universal values, Self respect, Gender
+							equality, Dignity and Ethics.</li>
+					</ul>
+				</div>
+				<div class="col-md-6" id="banner-col2">
+					<img class="img-responsive rounded mx-auto d-block"
+						src="/img/about.jpg" alt="" />
+				</div>
+			</div>
+		</div>
+	</section>
+	<hr />
+	<!-- product -->
+
+	<section class="bg-secondary" id="product">
+		<h1 class="text-center text-white">What's New</h1>
+		<div class="container-fluid" id="product-container">
+			<div class="row" id="banner-row">
+				<div class="col-md-6" id="about-col">
+					<img class="img-responsive rounded mx-auto d-block"
+						src="/img/new.jpg" alt="" />
+				</div>
+				<div class="col-md-6" id="product-col2">
+					<h3 class="text-center text-white">INDUSTRY-READY PROGRAMS</h3>
+
+					<ul>
+						<li class="text-white">B.Tech. (Hons.) - EEE with
+							specialization in Energy Engineering</li>
+						<li class="text-white">B.Tech. (Hons.) - CSE with
+							specialization in Data Science</li>
+						<li class="text-white">B.Tech. (Hons.) - EEE with
+							specialization in Electric Vehicles</li>
+						<li class="text-white">B.Tech. (Hons.) - ECE with
+							specialization in Robotics and Industrial Automation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<hr />
+	<!-- social -->
+	<section id="social">
+		<h1 class="text-center">Get In Touch</h1>
+		<div class="d-grid gap-2 d-md-flex justify-content-center">
+			<div class="row align-items-center" id="social-row">
+				<div class="col-md-4 social-col">
+					<a href="#Mail"><img
+						class="img-responsive rounded mx-auto d-block" src="/img/mail.png"
+						alt="" /></a>
+				</div>
+				<div class="col-md-4 social-col">
+					<a href="#Telephone"><img
+						class="img-responsive rounded mx-auto d-block" src="/img/tele.jpg"
+						alt="" /></a>
+				</div>
+				<div class="col-md-4 social-col">
+					<a href="#Twiter"><img
+						class="img-responsive rounded mx-auto d-block"
+						src="/img/letter.jpg" alt="" /></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- footer -->
+	<section id="footer">
+		<section id="banner">
+			<div class="container-fluid" id="banner-container">
+				<div class="row" id="banner-row">
+					<div class="col-md-4" id="footer-col1">
+						<h3>Description</h3>
+
+						<p>An institution of higher learning, especially one providing
+							a general or liberal arts education rather than technical or
+							professional training.</p>
+
+					</div>
+					<div class="col-md-4" id="footer-col2">
+						<h3>Contact Us</h3>
+
+						<p>Call Us- 1800-100-6532</p>
+						<p>Email Us- sky@edu.com</p>
+
+					</div>
+
+					<div class="col-md-4" id="footer-col2">
+						<h3>Subscribe To Newsletter</h3>
+						<form>
+							<div class="mb-3">
+								<input type="email" placeholder="Enter Your Email"
+									class="form-control" id="exampleInputEmail1"
+									aria-describedby="emailHelp" />
+								<div id="emailHelp" class="form-text">We'll never share
+									your email with anyone else.</div>
+							</div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+
+	<!-- Optional JavaScript; choose one of the two! -->
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

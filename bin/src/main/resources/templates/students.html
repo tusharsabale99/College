@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List of Students</title>
+<!-- Font Awesome -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+	rel="stylesheet" />
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+	rel="stylesheet" />
+<!-- MDB -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+	<!-- MDB -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+	<nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item active"><a class="nav-link" th:href="@{/}">Home</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<h1>Students List</h1>
+		</div>
+		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{/students/new}"
+					class="btn btn-primary btn-sm mb font-weight-bold">Add New
+					Student</a><br>
+			</div>
+
+		</div>
+		<table class="table table-bordered table-secondary table-hover w-auto">
+			<thead class="bg-success">
+				<tr>
+					<th>Student First Name</th>
+					<th>Student Last Name</th>
+					<th>Student Email</th>
+					<th>Student Mother Name</th>
+					<th>Student Father Name</th>
+					<th>Student Address</th>
+					<th>Student State</th>
+					<th>Student DOB</th>
+					<th>Student Pincode</th>
+					<th>Student Course</th>
+					<th>Student Stream</th>
+
+
+					<th>Student Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="table-active" th:each=" student : ${students}">
+					<td class="table-active font-weight-bold"
+						th:text="${student.firstname}"></td>
+					<td class="font-weight-bold th-lg" th:text="${student.lastname}"></td>
+					<td class="font-weight-bold" th:text="${student.email}"></td>
+					<td class="font-weight-bold" th:text="${student.mothername}"></td>
+					<td class="font-weight-bold" th:text="${student.fathername}"></td>
+					<td class="font-weight-bold" th:text="${student.address}"></td>
+					<td class="font-weight-bold" th:text="${student.state}"></td>
+					<td class="font-weight-bold" th:text="${student.dob}"></td>
+					<td class="font-weight-bold" th:text="${student.pincode}"></td>
+					<td class="font-weight-bold" th:text="${student.course}"></td>
+					<td class="font-weight-bold" th:text="${student.stream}"></td>
+
+					<td><a th:href="@{/students/edit/{id}(id=${student.id})}"
+						class="btn btn-success font-weight-bold">Edit</a> <a
+						th:href="@{/students/{id}(id=${student.id})}"
+						class="btn btn-danger font-weight-bold">Delete</a></td>
+				</tr>
+			</tbody>
+
+
+		</table>
+
+	</div>
+
+</body>
+</html>
